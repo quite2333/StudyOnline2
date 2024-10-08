@@ -23,7 +23,7 @@ public class User implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 4832310311066751993L;
     @TableId(type = IdType.AUTO)
-    private int id;
+    private Integer id;
     private String username;
     private String password;
     private String email;

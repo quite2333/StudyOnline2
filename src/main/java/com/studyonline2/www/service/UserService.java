@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UserService extends IService<User> {
 
-    long register(String userName, String password, String checkPassword, String email);
+    Long register(String userName, String password, String checkPassword, String email);
 
     Boolean updatePassword(String userAccount, String password, String checkPassword);
 
@@ -19,7 +19,7 @@ public interface UserService extends IService<User> {
 
     User searchUser(String userid);
 
-    Boolean delete(long id);
+    Boolean delete(Integer id);
 
     Boolean changeInfo(UserDTO userDTO);
 

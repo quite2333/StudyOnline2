@@ -51,7 +51,7 @@ public class UserController {
         String password = userRegisterRequest.getPassword();
         String checkPassword = userRegisterRequest.getCheckPassword();
         String email = userRegisterRequest.getEmail();
-        long l = userService.register(username,password,checkPassword,email);
+        Long l = userService.register(username,password,checkPassword,email);
         return ResultUtils.success(l);
     }
 
@@ -143,7 +143,7 @@ public class UserController {
     @PostMapping("/delete")
     public BaseResponse<Boolean> userDelete(@RequestBody HashMap params, HttpServletRequest request){
         String strId = (String) params.get("id");
-        long id = Long.parseLong(strId);
+        Integer id = Integer.parseInt(strId);
         if (id<=0){
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }

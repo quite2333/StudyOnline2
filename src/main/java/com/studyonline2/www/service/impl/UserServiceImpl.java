@@ -43,7 +43,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private StringRedisTemplate stringRedisTemplate;
 
     @Override
-    public long register(String username, String password, String checkPassword, String email) {
+    public Long register(String username, String password, String checkPassword, String email) {
         if (StringUtils.isAnyBlank(username, password, checkPassword, email)) {
             throw new BusinessException(ErrorCode.NULL_ERROR);
         }
@@ -75,7 +75,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if (!ans) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        return user.getId();
+        return Long.valueOf(user.getId());
     }
 
     @Override
@@ -149,7 +149,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public Boolean delete(long id) {
+    public Boolean delete(Integer id) {
         Boolean ans = this.delete(id);
         return ans;
     }
