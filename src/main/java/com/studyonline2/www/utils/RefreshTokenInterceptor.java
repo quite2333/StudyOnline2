@@ -33,6 +33,7 @@ public class RefreshTokenInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("authorization");
+        System.out.println(token);
         if (StringUtils.isBlank(token)) {
             return true;
         }
